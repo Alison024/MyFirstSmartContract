@@ -4,12 +4,25 @@
   "description": "",
   "main": "truffle-config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "truffle compile",
+    "test": "truffle test",
+    "prettier": "prettier --write 'contracts/**/*.sol'",
+    "pn": "ganache-cli -e 1000000000 -a 100 -l 15000000 --networkId 1111 --chainId 1111"
   },
   "dependencies": {
-    "solc": "^0.8.6"
+    "@openzeppelin/contracts": "^4.2.0",
+    "solc": "^0.8.6",
+    "web3": "^1.5.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@openzeppelin/test-helpers": "^0.5.12",
+    "chai": "^4.3.4",
+    "eth-crypto": "^2.0.0",
+    "ganache-cli": "^6.12.2",
+    "prettier": "^2.3.2",
+    "prettier-plugin-solidity": "^1.0.0-beta.17",
+    "solidity-coverage": "^0.7.16"
+  },
   "author": "",
   "license": "ISC"
 }
