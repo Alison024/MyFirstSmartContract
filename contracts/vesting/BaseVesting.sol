@@ -36,4 +36,8 @@ contract BaseVesting is Ownable {
         require(signer_ != address(0), "Invalid signer address");
         trustedSigner[signer_] = true;
     }
+
+    function isOwnable() public view onlyOwner returns(bool){
+        return true;
+    }
 }

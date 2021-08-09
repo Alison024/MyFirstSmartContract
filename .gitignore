@@ -6,3 +6,7 @@ node_modules/
 coverage
 coverage/
 coverage.json
+
+build
+build/
+
