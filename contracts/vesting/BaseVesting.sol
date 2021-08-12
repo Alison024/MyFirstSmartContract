@@ -45,11 +45,13 @@ contract BaseVesting is Ownable {
         trustedSigner[msg.sender] = true;
         require(rewToken != address(0), "Invalid reward token address");
         token = RewardErc20(rewToken);
+        require(block.timestamp<=startTimeStamp,"You can't set new start date as past time");
+        startDate = startTimeStamp;
         updateContractDate(startTimeStamp);
     }
 
     function updateContractDate(uint256 newStartTimeStamp) internal{
-        require(block.timestamp<newStartTimeStamp,'Contract already start vesting');
+        require(startDate>block.timestamp,'Contract already start staking');
         require(block.timestamp<=newStartTimeStamp,"You can't set new start date as past time");
         startDate = newStartTimeStamp;
         firstRelease = startDate.add(CLIF_PERIOD);
@@ -57,7 +59,8 @@ contract BaseVesting is Ownable {
     }
 
     function setInitialTimestamp (uint256 newTimeStamp) public onlyOwner {
-        require(isInitTimeStampCall==false,"You are already call this function");
+        require(isInitTimeStampCall==false,"You already called this function");
+        isInitTimeStampCall = true;
         updateContractDate(newTimeStamp);
     }
 
@@ -85,7 +88,7 @@ contract BaseVesting is Ownable {
         Investor storage investor = investorInfo[beneficiary];
         uint256 reward = _getRewardBalance(percentageOfToken,investor.allocation,investor.mintedToken);
         //uint256 balance = token.balanceOf(address(this));
-        require(reward >= investor.paidAmount, "No rewards available");
+        require(reward > investor.paidAmount, "No rewards available");
         uint256 amountToPay = reward.sub(investor.paidAmount);
         //require(amountToPay <= balance, "Balance of reward tokens on the contract is less than your reward");
         investor.paidAmount = amountToPay;
@@ -97,14 +100,10 @@ contract BaseVesting is Ownable {
         require(trustedSigner[msg.sender] == true,"You don't have permissions");
         Investor storage investor = investorInfo[msg.sender];
         uint256 reward = _getRewardBalance(percentageOfToken,investor.allocation,investor.mintedToken);
-        uint256 balance = token.balanceOf(address(this));
         if (reward <= investor.paidAmount) {
             return 0;
         } else {
             uint256 amountToPay = reward.sub(investor.paidAmount);
-            if (amountToPay >= balance) {
-                return 0;
-            }
             return amountToPay;
         }
     }
