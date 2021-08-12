@@ -17,6 +17,8 @@
   "devDependencies": {
     "@openzeppelin/test-helpers": "^0.5.12",
     "chai": "^4.3.4",
+    "decimal.js": "^10.3.1",
+    "dotenv": "^10.0.0",
     "eth-crypto": "^2.0.0",
     "ganache-cli": "^6.12.2",
     "prettier": "^2.3.2",
