@@ -8,16 +8,17 @@ module.exports = {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
-     },
-    rinkeby: {
-      provider: ()=>{
-        return new HDWalletProvider([process.env.PRIVATE_KEY],
-          `https://rinkeby.infura.io/v3/${process.env.PROJ_ID}`);
-      },
-      network_id: 4, 
-      gas: 4000000,
-      gasPrice: 21000000000
-    }
+     }
+    //  ,
+    // rinkeby: {
+    //   provider: ()=>{
+    //     return new HDWalletProvider([process.env.PRIVATE_KEY],
+    //       `https://rinkeby.infura.io/v3/${process.env.PROJ_ID}`);
+    //   },
+    //   network_id: 4, 
+    //   gas: 4000000,
+    //   gasPrice: 21000000000
+    // }
     
   },
   api_keys: {
