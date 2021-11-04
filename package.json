@@ -6,6 +6,7 @@
   "scripts": {
     "compile": "truffle compile",
     "test": "truffle test",
+    "coverage": "truffle run coverage",
     "prettier": "prettier --write 'contracts/**/*.sol'",
     "pn": "ganache-cli -e 1000000000 -a 100 -l 15000000 --networkId 1111 --chainId 1111"
   },
