@@ -12,7 +12,8 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.2.0",
     "solc": "^0.8.6",
-    "web3": "^1.5.1"
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.5.2"
   },
   "devDependencies": {
     "@openzeppelin/test-helpers": "^0.5.12",
@@ -23,7 +24,8 @@
     "ganache-cli": "^6.12.2",
     "prettier": "^2.3.2",
     "prettier-plugin-solidity": "^1.0.0-beta.17",
-    "solidity-coverage": "^0.7.16"
+    "solidity-coverage": "^0.7.16",
+    "truffle-plugin-verify": "^0.5.11"
   },
   "author": "",
   "license": "ISC"
