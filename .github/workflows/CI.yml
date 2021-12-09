@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: "14.17.0"
       - name: Install packages
-        run: npm ci
+        run: npm install
       - name: Run Truffle Test with CI=true for Codechecks  
         run: CI=true npm run test
       - name: coverage
