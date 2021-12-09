@@ -8,6 +8,7 @@
     "test": "truffle test",
     "coverage": "truffle run coverage",
     "prettier": "prettier --write 'contracts/**/*.sol'",
+    "solhint": "solhint contracts/**/*.sol",
     "pn": "ganache-cli -e 1000000000 -a 100 -l 15000000 --networkId 1111 --chainId 1111"
   },
   "dependencies": {
@@ -23,9 +24,11 @@
     "decimal.js": "^10.3.1",
     "dotenv": "^10.0.0",
     "eth-crypto": "^2.0.0",
+    "eth-gas-reporter": "^0.2.23",
     "ganache-cli": "^6.12.2",
     "prettier": "^2.3.2",
     "prettier-plugin-solidity": "^1.0.0-beta.17",
+    "solhint": "^3.3.6",
     "solidity-coverage": "^0.7.16",
     "truffle-plugin-verify": "^0.5.11"
   },

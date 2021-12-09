@@ -1,0 +1,23 @@
+{
+  "extends": "solhint:recommended",
+  "plugins": [],
+  "rules": {
+    "reentrancy": "warn",
+    "state-visibility": "warn",
+    "not-rely-on-time": "warn",
+    "not-rely-on-block-hash": "warn",
+    "func-visibility": ["error",{"ignoreConstructors":true}],
+    "avoid-low-level-calls": "warn",
+    "avoid-suicide": "error",
+    "avoid-sha3": "warn",
+    "no-empty-blocks": "warn",
+    "no-unused-vars": "error",
+    "payable-fallback": "warn",
+    "reason-string": ["warn",{"maxLength":32}],
+    "constructor-syntax": "warn",
+    "quotes": ["error","double"],
+    "const-name-snakecase": "warn",
+    "event-name-camelcase": "warn",
+    "func-name-mixedcase": "warn"
+  }
+}
