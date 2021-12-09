@@ -14,6 +14,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "14.17.0"
+      - name: Install node moduless
+        run: npm install
       - name: Install ci
         run: npm ci
       - name: Run Truffle Test with CI=true for Codechecks  
