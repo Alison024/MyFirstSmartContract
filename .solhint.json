@@ -18,6 +18,7 @@
     "quotes": ["error","double"],
     "const-name-snakecase": "warn",
     "event-name-camelcase": "warn",
-    "func-name-mixedcase": "warn"
+    "func-name-mixedcase": "warn",
+    "compiler-version":["error","0.8.0"]
   }
 }

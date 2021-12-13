@@ -11,16 +11,12 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: "14.17.0"
       - name: Run ci
         run: npm ci
-      - name: Run Truffle Test with CI=true for Codechecks  
-        run: CI=true npm run test
-      - name: coverage
-        run: npm run coverage 
-      - name: solhint
-        run: npm run solhint 
+      - name: Run all tests
+        run: npm run ci
 
       

@@ -1,6 +1,3 @@
-const BaseVesting = artifacts.require("BaseVesting");
-const RewardToken = artifacts.require("RewardErc20");
-const Reverter = require('./utils/reverter');
 const {
     constants,
     expectRevert,
@@ -13,6 +10,9 @@ const {
 const {
     expect
 } = require('chai');
+const BaseVesting = artifacts.require("BaseVesting");
+const RewardToken = artifacts.require("RewardErc20");
+const Reverter = require('./utils/reverter');
 
 contract('BaseVestingTest', ([owner, user1, user2, user3, user4]) => {
     let startDate;
@@ -22,9 +22,7 @@ contract('BaseVestingTest', ([owner, user1, user2, user3, user4]) => {
         let currentDate = await time.latest();
         startDate = currentDate.add(time.duration.minutes(10));
         rewardToken = await RewardToken.new(TOTALSUPPLYERC20);
-        baseVesting = await BaseVesting.new(rewardToken.address, owner, startDate, {
-            from: owner
-        });
+        baseVesting = await BaseVesting.new(rewardToken.address, owner, startDate);
         await baseVesting.addInvestors(user1, ether('5000'), false);
         await baseVesting.addInvestors(user2, ether('10000'), true);
         await reverter.snapshot();
