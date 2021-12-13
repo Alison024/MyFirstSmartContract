@@ -14,7 +14,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14.17.0"
-      - name: Run ci
+      - name: Install packages
         run: npm ci
       - name: Run all tests
         run: npm run ci
